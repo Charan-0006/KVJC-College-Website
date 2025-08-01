@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishnaveni Vikas Junior College</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+             <img src="Resources/clg logo.png" alt="CMLG Logo" class="nav-logo" />
+
+       <h1 class="nav-title">
+         <span class="orange">Krishnaveni Vikas</span> 
+         <span class="red">Junior College</span>
+       </h1>
+
+                    <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#why-us" class="nav-link">Why Us</a>
+                <a href="/gallery/gallery.html" class="nav-link">Gallery</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button class="btn-primary" onclick="window.location.href='admission.html'">Grab Admission Now</button>
+
+
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Welcome to <span class="accent-text">Krishnaveni Vikas</span> Junior College</h1>
+            <p class="hero-subtitle">Empowering students with quality education and shaping tomorrow's leaders through excellence in academics and character development.</p>
+            <div class="hero-buttons">
+         <button class="btn-primary" onclick="window.location.href='admission.html'">Grab Admission Now</button>
+
+
+                <button class="btn-secondary" onclick="scrollToSection('about')">Learn More</button>
+            </div>
+        </div>
+        <div class="scroll-indicator" onclick="scrollToSection('about')">↓</div>
+    </section>
+ 
+    <!-- Rolling Gallery -->
+    <section class="rolling-gallery">
+        <div class="gallery-container">
+            <h2>Campus Life</h2>
+            <p>Experience the vibrant atmosphere of our college</p>
+            <div class="rolling-images" id="rolling-gallery">
+              <img src="Resources/marks-6.jpg" alt="Students in library">
+              <img src="Resources/Marks-4.JPG" alt="Campus building">
+              <img src="Resources/Ravisir.JPG" alt="Laboratory">
+              <img src="Resources/marks-2.jpg" alt="Classroom">
+              <img src="Resources/jamuna mam.JPG" alt="Campus courtyard">
+              <img src="Resources/2024Top.jpg" alt="Students studying">
+              <img src="Resources/Marks-3.JPG" alt="Students studying">
+              <img src="Resources/Marks-1.JPG" alt="Students studying">
+              <img src="Resources/Marks-5.JPG" alt="Students studying">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Krishnaveni Vikas Junior College</h2>
+                    <p>Established with a vision to provide world-class education, Krishnaveni Vikas Junior College has been a beacon of academic excellence for over two decades. We are committed to nurturing young minds and preparing them for successful careers and meaningful lives.</p>
+                    <p>Our institution combines traditional values with modern teaching methodologies, creating an environment where students can thrive academically, personally, and professionally.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-number">20+</div>
+                            <div class="stat-label">Years of Excellence</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">5000+</div>
+                            <div class="stat-label">Alumni Network</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Expert Faculty</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">95%</div>
+                            <div class="stat-label">Success Rate</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-images">
+                    <img src="Resources/campus.jpg" alt="College campus">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section id="why-us" class="why-us">
+        <div class="container">
+            <h2>Why Choose Krishnaveni Vikas?</h2>
+            <p class="section-subtitle">Discover what makes us the preferred choice for students and parents seeking quality education.</p>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Academic Excellence</h3>
+                    <p>Comprehensive curriculum designed to meet modern educational standards with focus on conceptual understanding.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">👥</div>
+                    <h3>Expert Faculty</h3>
+                    <p>Highly qualified and experienced teachers committed to providing personalized attention to every student.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🏢</div>
+                    <h3>Modern Facilities</h3>
+                    <p>Well-equipped laboratories, digital classrooms, extensive library, and recreational facilities.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">✅</div>
+                    <h3>Individual Attention</h3>
+                    <p>Small class sizes ensure personalized learning experience with regular assessments and feedback.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🧭</div>
+                    <h3>Career Guidance</h3>
+                    <p>Comprehensive career counseling to help students make informed decisions about their future.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Extracurricular Excellence</h3>
+                    <p>Wide range of sports, cultural activities, and clubs for overall personality development.</p>
+                </div>
+            </div>
+            <button class="btn-primary" onclick="window.open('admission.html', '_blank')">Start your jourey with us</button>
+        </div>
+    </section>
+
+<!-- Gallery Section -->
+<section class="gallery-slider" onmouseenter="pauseSlider()" onmouseleave="resumeSlider()">
+  <div class="slider-wrapper" id="slider-wrapper">
+    <img src="Resources/gallery1.JPG" alt="Campus 1">
+<img src="Resources/gallery2.JPG" alt="Students">
+<img src="Resources/gallery3.JPG" alt="Lab">
+<img src="Resources/sucess_1.JPG" alt="Walkway">
+<img src="Resources/sucess2.JPG" alt="Walkway">
+<img src="Resources/scholarship.JPG" alt="Classroom">
+<img src="Resources/Ravisir.JPG" alt="Library">
+    
+    <!-- YouTube video as a slide -->
+    <div class="video-slide">
+      <iframe 
+        src="https://www.youtube.com/embed/Rgt4tylQvwQ?si=VfJbWfAsAf3HBP_P" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
+        title="Campus Tour"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <!-- Navigation buttons -->
+  <button class="slider-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+  <button class="slider-btn next" onclick="changeSlide(1)">&#10095;</button>
+</section>
+
+<script>
+  const slider = document.getElementById('slider-wrapper');
+  const slides = slider.children;
+  let currentIndex = 0;
+  let slideInterval = setInterval(nextSlide, 3000);
+
+  function updateSlider() {
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlider();
+  }
+
+  function changeSlide(direction) {
+    currentIndex += direction;
+    if (currentIndex < 0) currentIndex = slides.length - 1;
+    if (currentIndex >= slides.length) currentIndex = 0;
+    updateSlider();
+  }
+
+  function pauseSlider() {
+    clearInterval(slideInterval);
+  }
+
+  function resumeSlider() {
+    slideInterval = setInterval(nextSlide, 3000);
+  }
+</script>
+
+
+
+<!-- Contact Section -->
+<!-- Contact Section -->
+<section id="contact" class="contact-modern">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <p class="section-subtitle">Get in touch for admissions, inquiries, or any information</p>
+
+    <div class="contact-grid">
+      <!-- Contact Info -->
+      <div class="contact-boxes">
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <h4>Address</h4>
+            <p>19-3-26/2, Markendeya Colony,<br>Godavarikhani, Ramagundam, Telangana 505209</p>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+          <div>
+            <h4>Phone</h4>
+            <p>+91 9490671716 [Principal]<br>+91 9391913460 [Vice Principal]</p>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <div>
+            <h4>Email</h4>
+            <p>kvjcgdk@gmail.com<br>rawikumarev6@gmail.com</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Google Map Embed & Social -->
+      <div class="map-box">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3777.949115157659!2d79.5019688348877!3d18.755809800000016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a32cef71c0d4297%3A0x88a06ce4596975f6!2sKrishnaveni%20Vikas%20Junior%20College!5e0!3m2!1sen!2sin!4v1753821396947!5m2!1sen!2sin" 
+          width="100%" 
+          height="100%" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+
+        <div class="social-follow">
+          <h4>Follow Us</h4>
+          <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Krishnaveni Vikas Junior College</h3>
+                    <p>Empowering students with quality education and shaping tomorrow's leaders through excellence in academics and character development.</p>
+                     <button class="btn-primary" onclick="window.open('admission.html', '_blank')">Grab Admission Now</button>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#why-us">Why Choose Us</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Programs</h4>
+                    <ul>
+                        <li><a href="#">MPC (Maths, Physics, Chemistry)</a></li>
+                        <li><a href="#">BiPC (Biology, Physics, Chemistry)</a></li>
+                        <li><a href="#">CEC (Civics, Economics, Commerce)</a></li>
+                        <li><a href="#">IIT-JEE Mains Coaching</a></li>
+                        <li><a href="#">NEET Coaching</a></li>
+                    </ul>
+                </div>
+ 
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>📍 19-3-26/2, Markendeya Colony, Godavarikhani, Ramagundam, Telangana 505209</p>
+                    <p>📞 +91 9490671716  [Principal]</p>
+                    <p>📞 +91 9391913460 [vice Principal]</p>
+                    <p>✉️ kvjcgdk@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Krishnaveni Vikas Junior College. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+    <!-- Image Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+    <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">↑</button>
+ <a href="https://wa.me/9885855666" class="whatsapp-sticky" target="_blank" title="Chat on WhatsApp">
+    <img src="Resources/whatsapp.png" alt="WhatsApp" class="whatsapp-icon" />
+</a>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

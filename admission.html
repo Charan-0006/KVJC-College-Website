@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Admission Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .admission-btn {
+            background: linear-gradient(45deg, #FF6B6B, #FF8E53);
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .admission-btn:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .admission-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .admission-btn:hover:before {
+            width: 100%;
+        }
+
+        .admission-btn:active {
+            transform: translateY(1px);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            overflow-y: auto;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 50px auto;
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: slideIn 0.5s;
+            position: relative;
+        }
+
+        @keyframes slideIn {
+            from { 
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            to { 
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(45deg, #1a2a6c, #b21f1f);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+       .modal-header h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-size: 2.2rem;
+}
+
+        .modal-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close:hover {
+            transform: rotate(90deg);
+            color: #FF6B6B;
+        }
+
+        .modal-body {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-card h3 {
+            color: #1a2a6c;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-card h3 i {
+            margin-right: 10px;
+            color: #FF6B6B;
+        }
+
+        .info-card p, .info-card li {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .info-card ul {
+            padding-left: 20px;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-section {
+            grid-column: span 2;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .cta-section h3 {
+            color: #1a2a6c;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .apply-btn {
+            background: linear-gradient(45deg, #1a2a6c, #b21f1f);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .apply-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .college-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -50px auto 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            font-size: 2.5rem;
+            color: #1a2a6c;
+        }
+
+        @media (max-width: 768px) {
+            .modal-body {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-section {
+                grid-column: span 1;
+            }
+            
+            .modal-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+        .nav-logo {
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+/* Navigation */
+.orange {
+  color: var(--accent-color); /* Orange */
+  font-weight: bold;
+}
+
+.red {
+  color: #dc2626; /* Red */
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+   justify-content: space-between;
+    align-items: center;
+    height: 90px;
+}
+.nav-logo {
+    height: 70px;
+    margin-right: 55px;
+}
+
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-left: auto;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.admission-btn {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.admission-btn:hover {
+    background: #d97706;
+    transform: translateY(-2px);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--text-dark);
+    margin: 3px 0;
+    transition: 0.6s;
+}
+
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('clg\ hero.jpg') center center / contain no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 12px 10px;
+    animation: fadeInUp 2s ease;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+     margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.accent-text {
+    color: var(--accent-color);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+     margin-bottom: 60px;
+}
+
+.btn-primary {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.btn-primary:hover {
+    background: #d97706;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: var(--primary-color);
+}
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+
+    background-color:var(--accent-color); /* orange */
+   
+    border: 2px ;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease; /* smooth transition */
+}
+
+.scroll-indicator:hover {
+    background-color: #c56e0a; /* darker orange / slightly blackish */
+}
+    /* Responsive Media Queries */
+@media (max-width: 1024px) {
+    .nav-container {
+        padding: 10px;
+        flex-direction: column;
+        height: auto;
+        align-items: flex-start;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .nav-title {
+        font-size: 1.4rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        background-size: cover;
+        padding: 20px;
+    }
+
+    .hero-content {
+        padding: 10px;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 10px;
+    }
+
+    .nav-menu.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .modal-body {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-section {
+        grid-column: span 1;
+    }
+
+    .modal-header h2 {
+        flex-direction: column;
+        font-size: 1.6rem;
+    }
+
+    .modal-header img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .admission-btn {
+        font-size: 1rem;
+        padding: 12px 25px;
+    }
+
+    .apply-btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .scroll-indicator {
+        font-size: 1.5rem;
+        padding: 8px;
+    }
+
+    .info-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .info-card p, .info-card li {
+        font-size: 0.95rem;
+    }
+}
+body {
+    padding-top: 100px; /* Same or more than navbar height */
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+             <img src="Resources/clg logo.png" alt="CMLG Logo" class="nav-logo" />
+       <h1 class="nav-title">
+         <span class="orange">Krishnaveni Vikas</span> 
+         <span class="red">Junior College</span>
+       </h1>
+
+                    <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                
+                
+                <a href="gallery/gallery.html" class="nav-link">Gallery</a>
+                
+                
+
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <button class="admission-btn" onclick="openAdmissionModal()">Grab Admission Now</button>
+
+    <!-- Admission Modal -->
+    <div id="admissionModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeAdmissionModal()">&times;</span>
+              
+                <h2><img src="Resources/clg logo.png" alt="CMLG Logo" class="nav-logo" />Krishnaveni Vikas Junior College</h2>
+                <p>Shaping Tomorrow's Leaders Today</p>
+            </div>
+            <div class="modal-body">
+                <div class="info-card">
+                    <h3><i class="fas fa-map-marker-alt"></i> Campus Address</h3>
+                    <p>19-3-26/2, Markendeya Colony, Godavarikhani, Ramagundam, Telangana 505209</p>
+                 
+                </div>
+                
+                <div class="info-card">
+                    <h3><i class="fas fa-phone-alt"></i> Contact Information</h3>
+                    <p><strong>Admissions Office:</strong> +91  9490671716 </p>
+                    <p><strong>General Helpline:</strong> +91 9885855666</p>
+                    <p><strong>Email:</strong> kvjcgdk@gmail.com</p>
+                    <a href="https://wa.me/9885855666" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                </div>
+                
+                <div class="info-card">
+                    <h3><i class="fas fa-graduation-cap"></i> Programs Offered</h3>
+                    <ul>
+                        <li>MPC</li>
+                        <li>BIPC</li>
+                        <li>CEC</li>
+                        <li>IIT-JEE mains</li>
+                        <li>Neet</li>
+                    </ul>
+                </div>
+              <div class="info-card">
+    <h3><i class="fab fa-youtube"></i> Watch Our College Overview</h3>
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <iframe 
+            src="https://www.youtube.com/embed/Rgt4tylQvwQ?si=VfJbWfAsAf3HBP_P" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
+            frameborder="0" 
+            allowfullscreen 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+        </iframe>
+    </div>
+</div>
+
+                
+                <div class="cta-section">
+                    <h3>“Got Questions? We’re Just a Call Away!”</h3>
+                    <p>Start your journey towards academic excellence and a successful career</p>
+                   <a href="tel:9885855666" class="apply-btn">📞 Call Us Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openAdmissionModal() {
+            document.getElementById("admissionModal").style.display = "block";
+            document.body.style.overflow = "hidden"; // Prevent scrolling
+        }
+
+        function closeAdmissionModal() {
+            document.getElementById("admissionModal").style.display = "none";
+            document.body.style.overflow = "auto"; // Enable scrolling
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById("admissionModal");
+            if (event.target == modal) {
+                closeAdmissionModal();
+            }
+        }
+
+        // Apply button functionality
+        document.querySelector(".apply-btn").addEventListener("click", function() {
+            alert("Redirecting to application form...");
+            // In a real implementation, this would redirect to the application page
+            // window.location.href = "https://university.edu/apply";
+        });
+        function toggleMenu() {
+    const navMenu = document.getElementById("nav-menu");
+    navMenu.classList.toggle("show");
+}
+
+    </script>
+</body>
+</html>
