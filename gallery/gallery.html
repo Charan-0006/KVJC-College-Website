@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Krishnaveni Vikas Junior College</title>
+    <meta name="description" content="Explore campus life at Krishnaveni Vikas Junior College through our photo gallery featuring academic facilities, student activities, and campus highlights.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="college-logo">
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+  <pattern id="logoPattern" patternUnits="userSpaceOnUse" width="60" height="60">
+    <image href="../Resources/clg logo.png" x="0" y="0" width="60" height="60" />
+  </pattern>
+
+  <linearGradient id="logoBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="white" stop-opacity="0.3"/>
+    <stop offset="100%" stop-color="white" stop-opacity="0.1"/>
+  </linearGradient>
+</defs>
+
+<circle cx="30" cy="30" r="28" fill="url(#logoPattern)" stroke="url(#logoBorder)" stroke-width="2"/>
+
+                       
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="var(--theme-primary)"/>
+                                <stop offset="50%" stop-color="var(--theme-secondary)"/>
+                                <stop offset="100%" stop-color="var(--theme-accent)"/>
+                            </linearGradient>
+                            <linearGradient id="logoBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="white" stop-opacity="0.3"/>
+                                <stop offset="100%" stop-color="white" stop-opacity="0.1"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="header-text">
+                    <h1 class="header-title">Krishnaveni Vikas Junior College</h1>
+                    <p class="header-subtitle">Campus Gallery</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <!-- Tools Section -->
+            <div class="tools-section">
+                <div class="view-controls">
+                    <button id="shuffleBtn" class="shuffle-btn">🔀 Shuffle</button>
+                    <button id="themeBtn" class="theme-btn">🎨 Change Theme</button>
+                </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid" id="gallery">
+                <div class="gallery-item" data-keywords="main building architecture campus">
+                    <img src="../Resources/campus.jpg" alt="College main building" loading="lazy">
+
+                    <div class="overlay">
+                        <h3>Main Building</h3>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-keywords="library books study learning">
+                    <img src="../Resources/marks-1.jpg" alt="College library" loading="lazy">
+                    <div class="overlay">
+                        <h3>Library</h3>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-keywords="campus grounds outdoor nature">
+                    <img src="../Resources/gallery1.JPG" alt="Campus grounds" loading="lazy">
+                    <div class="overlay">
+                        <h3>Campus Grounds</h3>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-keywords="classroom students learning education">
+                    <img src="../Resources/Ravisir.JPG" alt="Students in classroom" loading="lazy">
+                    <div class="overlay">
+                        <h3>Classroom</h3>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-keywords="science lab laboratory research experiment">
+                    <img src="../Resources/jamuna mam.JPG" alt="Science laboratory" loading="lazy">
+                    <div class="overlay">
+                        <h3>Science Lab</h3>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-keywords="computer lab technology programming coding">
+                    <img src="../Resources/Marks-2.jpg" alt="Computer lab" loading="lazy">
+                    <div class="overlay">
+                        <h3>Computer Lab</h3>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-keywords="ceremony graduation annual celebration">
+                    <img src="../Resources/gallery2.JPG" alt="College ceremony" loading="lazy">
+                    <div class="overlay">
+                        <h3>Annual Day</h3>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-keywords="cultural fest dance music performance">
+                    <img src="../Resources/Marks-4.JPG" alt="Cultural festival" loading="lazy">
+                    <div class="overlay">
+                        <h3>Cultural Fest</h3>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-keywords="study group students collaboration teamwork">
+                    <img src="../Resources/gallery3.JPG" alt="Study group" loading="lazy">
+                    <div class="overlay">
+                        <h3>Study Groups</h3>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-keywords="sports basketball athletics fitness">
+                    <img src="..//Resources/2024Top.jpg" alt="Sports activities" loading="lazy">
+                    <div class="overlay">
+                        <h3>Sports</h3>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-keywords="ceremony graduation annual celebration">
+                    <img src="../Resources/Annual.jpeg" alt="College ceremony" loading="lazy">
+                    <div class="overlay">
+                        <h3>Annual Day</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <span class="close-btn" id="closeBtn">&times;</span>
+            <img class="lightbox-img" id="lightboxImg" src="" alt="">
+            <div class="lightbox-info">
+                <h3 class="lightbox-title" id="lightboxTitle"></h3>
+                <p class="lightbox-description" id="lightboxDescription"></p>
+            </div>
+            <button class="nav-btn prev-btn" id="prevBtn">&#8249;</button>
+            <button class="nav-btn next-btn" id="nextBtn">&#8250;</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Krishnaveni Vikas Junior College. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Gallery functionality
+        class Gallery {
+            constructor() {
+                this.currentImageIndex = 0;
+                this.filteredImages = [];
+                this.allImages = Array.from(document.querySelectorAll('.gallery-item'));
+                this.isListView = false;
+                this.init();
+            }
+
+            init() {
+                this.setupViewControls();
+                this.setupLightbox();
+                this.setupImageClicks();
+                this.filteredImages = [...this.allImages];
+                this.showAllImages();
+            }
+
+            showAllImages() {
+                const galleryItems = document.querySelectorAll('.gallery-item');
+                this.filteredImages = [...this.allImages];
+                galleryItems.forEach(item => {
+                    item.style.display = 'block';
+                    setTimeout(() => item.classList.add('show'), 10);
+                });
+            }
+
+            setupViewControls() {
+                const shuffleBtn = document.getElementById('shuffleBtn');
+                const themeBtn = document.getElementById('themeBtn');
+                
+                shuffleBtn.addEventListener('click', () => this.shuffleImages());
+                themeBtn.addEventListener('click', () => this.changeTheme());
+            }
+
+            shuffleImages() {
+                const gallery = document.getElementById('gallery');
+                const items = Array.from(gallery.children);
+                
+                // Shuffle array
+                for (let i = items.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [items[i], items[j]] = [items[j], items[i]];
+                }
+                
+                // Re-append in new order
+                items.forEach(item => gallery.appendChild(item));
+                
+                // Add shuffle animation
+                gallery.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    gallery.style.transform = 'scale(1)';
+                }, 200);
+            }
+
+            changeTheme() {
+                const themes = [
+                    {
+                        name: 'vibrant-ocean',
+                        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 20%, #f093fb 40%, #f5576c 60%, #4facfe 80%, #00f2fe 100%)',
+                        primary: '#3b82f6',
+                        secondary: '#8b5cf6',
+                        accent: '#f5576c'
+                    },
+                    {
+                        name: 'tropical-sunset',
+                        background: 'linear-gradient(135deg, #ff6b6b 0%, #ffa726 15%, #42a5f5 30%, #ab47bc 45%, #26c6da 60%, #66bb6a 75%, #ffeb3b 90%, #ff7043 100%)',
+                        primary: '#ff5722',
+                        secondary: '#ab47bc',
+                        accent: '#26c6da'
+                    },
+                    {
+                        name: 'mystic-forest',
+                        background: 'linear-gradient(135deg, #4caf50 0%, #81c784 12%, #aed581 25%, #c8e6c9 37%, #f1f8e9 50%, #dcedc8 62%, #689f38 75%, #8bc34a 87%, #cddc39 100%)',
+                        primary: '#4caf50',
+                        secondary: '#689f38',
+                        accent: '#cddc39'
+                    },
+                    {
+                        name: 'royal-lavender',
+                        background: 'linear-gradient(135deg, #9c27b0 0%, #e1bee7 12%, #f3e5f5 25%, #ba68c8 37%, #ce93d8 50%, #e91e63 62%, #f48fb1 75%, #ad1457 87%, #880e4f 100%)',
+                        primary: '#9c27b0',
+                        secondary: '#e91e63',
+                        accent: '#f48fb1'
+                    },
+                    {
+                        name: 'aurora-arctic',
+                        background: 'linear-gradient(135deg, #b0bec5 0%, #cfd8dc 10%, #eceff1 20%, #00bcd4 30%, #4dd0e1 40%, #81d4fa 50%, #b3e5fc 60%, #e1f5fe 70%, #90a4ae 80%, #607d8b 90%, #455a64 100%)',
+                        primary: '#00bcd4',
+                        secondary: '#607d8b',
+                        accent: '#4dd0e1'
+                    },
+                    {
+                        name: 'cosmic-galaxy',
+                        background: 'linear-gradient(135deg, #1a237e 0%, #3f51b5 8%, #5c6bc0 16%, #7986cb 24%, #9fa8da 32%, #c5cae9 40%, #673ab7 48%, #9c27b0 56%, #e91e63 64%, #f06292 72%, #ba68c8 80%, #ce93d8 88%, #e1bee7 96%, #f3e5f5 100%)',
+                        primary: '#3f51b5',
+                        secondary: '#9c27b0',
+                        accent: '#e91e63'
+                    },
+                    {
+                        name: 'rainbow-prism',
+                        background: 'linear-gradient(135deg, #ff9a9e 0%, #fecfef 10%, #fecfef 20%, #a8edea 30%, #fed6e3 40%, #d299c2 50%, #fef9d7 60%, #667eea 70%, #764ba2 80%, #f093fb 90%, #f5576c 100%)',
+                        primary: '#667eea',
+                        secondary: '#d299c2',
+                        accent: '#ff9a9e'
+                    },
+                    {
+                        name: 'emerald-dream',
+                        background: 'linear-gradient(135deg, #11998e 0%, #38ef7d 12%, #41b883 25%, #00d4aa 37%, #36d1dc 50%, #5b86e5 62%, #667eea 75%, #764ba2 87%, #f093fb 100%)',
+                        primary: '#11998e',
+                        secondary: '#5b86e5',
+                        accent: '#38ef7d'
+                    }
+                ];
+
+                const randomTheme = themes[Math.floor(Math.random() * themes.length)];
+                
+                // Apply theme to CSS variables
+                document.documentElement.style.setProperty('--theme-background', randomTheme.background);
+                document.documentElement.style.setProperty('--theme-primary', randomTheme.primary);
+                document.documentElement.style.setProperty('--theme-secondary', randomTheme.secondary);
+                document.documentElement.style.setProperty('--theme-accent', randomTheme.accent);
+                
+                // Update body background with animation
+                document.body.style.background = randomTheme.background;
+                document.body.style.backgroundSize = '400% 400%';
+                
+                // Add theme change animation
+                const themeBtn = document.getElementById('themeBtn');
+                themeBtn.style.transform = 'rotate(360deg) scale(1.1)';
+                setTimeout(() => {
+                    themeBtn.style.transform = 'rotate(0deg) scale(1)';
+                }, 500);
+            }
+
+            setupImageClicks() {
+                this.allImages.forEach((item, index) => {
+                    item.addEventListener('click', () => {
+                        this.currentImageIndex = this.filteredImages.indexOf(item);
+                        this.openLightbox(item);
+                    });
+                });
+            }
+
+            setupLightbox() {
+                const lightbox = document.getElementById('lightbox');
+                const closeBtn = document.getElementById('closeBtn');
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+
+                closeBtn.addEventListener('click', () => this.closeLightbox());
+                prevBtn.addEventListener('click', () => this.previousImage());
+                nextBtn.addEventListener('click', () => this.nextImage());
+
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) {
+                        this.closeLightbox();
+                    }
+                });
+
+                document.addEventListener('keydown', (e) => {
+                    if (lightbox.classList.contains('active')) {
+                        if (e.key === 'Escape') this.closeLightbox();
+                        if (e.key === 'ArrowLeft') this.previousImage();
+                        if (e.key === 'ArrowRight') this.nextImage();
+                    }
+                });
+            }
+
+            openLightbox(item) {
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImg = document.getElementById('lightboxImg');
+                const lightboxTitle = document.getElementById('lightboxTitle');
+                const lightboxDescription = document.getElementById('lightboxDescription');
+
+                const img = item.querySelector('img');
+                const overlay = item.querySelector('.overlay');
+                const title = overlay.querySelector('h3').textContent;
+                const description = overlay.querySelector('p').textContent;
+
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightboxTitle.textContent = title;
+                lightboxDescription.textContent = description;
+
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            closeLightbox() {
+                const lightbox = document.getElementById('lightbox');
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+
+            previousImage() {
+                this.currentImageIndex = this.currentImageIndex > 0 ? 
+                    this.currentImageIndex - 1 : 
+                    this.filteredImages.length - 1;
+                this.openLightbox(this.filteredImages[this.currentImageIndex]);
+            }
+
+            nextImage() {
+                this.currentImageIndex = this.currentImageIndex < this.filteredImages.length - 1 ? 
+                    this.currentImageIndex + 1 : 
+                    0;
+                this.openLightbox(this.filteredImages[this.currentImageIndex]);
+            }
+        }
+
+        // Initialize gallery when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new Gallery();
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>
